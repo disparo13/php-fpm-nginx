@@ -34,6 +34,7 @@ max_file_uploads = 20\n\
 default_charset = \"UTF-8\"\n\
 date.timezone = \"Europe/Brussels\"\n\
 short_open_tag = On\n\
+cgi.fix_pathinfo = 0\n\
 error_reporting = E_ALL & ~E_STRICT & ~E_DEPRECATED" > /usr/local/etc/php/php.ini
 
 RUN echo "\
