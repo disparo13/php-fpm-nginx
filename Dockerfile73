@@ -19,11 +19,9 @@ RUN echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" \
     apt-get clean
 
 # Enabling php extensions
-RUN docker-php-ext-install iconv sockets mbstring mysqli pdo pdo_mysql \
+RUN docker-php-ext-install iconv sockets mbstring mysqli pdo pdo_mysql bcmath zip \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install intl \
-    && docker-php-ext-install zip
+    && docker-php-ext-install gd intl
 
 # Configure PHP
 RUN echo "\
