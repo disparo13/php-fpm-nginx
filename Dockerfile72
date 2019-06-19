@@ -18,6 +18,9 @@ RUN echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" \
     apt-get upgrade -y && \
     apt-get clean
 
+# Removing the rest of apt cache
+RUN rm -rf /var/lib/apt/lists
+
 # Enabling php extensions
 RUN docker-php-ext-install iconv sockets mbstring mysqli pdo pdo_mysql bcmath zip \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
